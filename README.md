@@ -25,6 +25,10 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
   - `posit_lookup_table.py`: Generates lookup tables mapping Posit values to floats.
   - `posit_to_float.py`: Converts Posit bitstrings to floating-point numbers.
 
+- `src/image_encryption/`
+  - `image_encryption.ipynb`: Image encryption scheme implemented unsing Software-in-the-Loop and Hardware-in-the-Loop PRNG scheme.
+  - `images`: Images repository used for encrypting process. 
+
 - `README.md`: Project documentation.
 
 ## How to Run (Using ModelSim)
