@@ -60,9 +60,10 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
 
 5. **Visualize results** through the ModelSim UI. Expected output and waveforms are displayed in the integrated waveform viewer, as shown below:
 
-![ModelSim UI](image_docs/ModelSimPic.png)
+![ModelSim UI](images_docs/model_sim_example.png)
 
-6. **An Output file** called "output_S.txt" is generated with the iterations of the PRNG.
+6. **An Output file** called "output_S.txt" is generated with the iterations of the PRNG, as the example below:
+![Output file example](images_docs/output_example.png)
 
 ## Utility Tools
 
