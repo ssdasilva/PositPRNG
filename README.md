@@ -16,62 +16,72 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
 
 - `src/pseudorandom_generator/`
   - `complete_scheme.vhdl`: Main VHDL implementation of the PRNG.
-  - `tb_complete_sine_map_scheme.vhd`: Testbench for simulation.
-  - `input_A.txt`: Example input seed values.
-  - `tb_script.do`, `wave.do`: ModelSim simulation scripts.
+  - `tb_complete_sine_map_scheme.vhd`: Comprehensive testbench for simulation and validation.
+  - `input_A.txt`: Example input seed value in Posit<32,2> format.
+  - `tb_script.do`, `wave.do`: ModelSim simulation automation script.
 
 - `src/tools/`
-  - `double_to_posit.py`: Python script to convert double-precision floats to Posit representation.
-  - `posit_lookup_table.py`: Generates lookup tables mapping Posit values to floats.
-  - `posit_to_float.py`: Converts Posit bitstrings to floating-point numbers.
+  - `double_to_posit.py`: Converts IEEE 754 double-precision floats to Posit representation.
+  - `posit_lookup_table.py`: Generates comprehensive lookup tables mapping Posit values to floats.
+  - `posit_to_float.py`: Converts Posit bit-strings to floating-point equivalents.
 
 - `src/image_encryption/`
-  - `image_encryption.ipynb`: Image encryption scheme implemented unsing Software-in-the-Loop and Hardware-in-the-Loop PRNG scheme.
-  - `images`: Images repository used for encrypting process. 
+  - `image_encryption.ipynb`: Software-in-the-Loop (SIL) and Hardware-in-the-Loop (HIL) implementations of the image encryption scheme.
+  - `images/`: Test image dataset for encryption validation.
 
-- `image_docs`: Images utilized for this README file.
+- `image_docs/`: Documentation images
 
-- `README.md`: Project documentation.
+## Requirements
 
-## Dependencies
+| Requirement | Version | Purpose |
+|------------|---------|---------|
+| [ModelSim](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-18-1) | 18.1+ | FPGA simulation and verification |
+| Python | 3.12.3+ | Utility tools and test vector generation |
+| Jupyter Notebook | 6.4.12+ | Interactive image encryption demonstrations |
 
-1. [ModelSim](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-18-1) - FPGA simulation tool
-2. Python (3.12.3 or later) - For executing tools and scripts.
-3. Jupyter notebook - For the image encryption scheme.
+## Getting Started
 
-## How to Run (Using ModelSim)
+### Running Simulations with ModelSim
 
 1. **Open ModelSim** and set your working directory to `src/pseudorandom_generator/`.
 
 2. **Compile the VHDL files**:
-   ```
+   ```bash
    vcom complete_scheme.vhdl
    vcom tb_complete_sine_map_scheme.vhd
    ```
-3. **Change the input seed** by editing `input_A.txt` if needed. This number is saved in bits using Posit<32,2> format.
 
-4. **Run the simulation** using the provided script:
-   ```
+3. **Configure the input seed** by editing `input_A.txt` as needed. The seed must be specified in Posit<32,2> binary format.
+
+4. **Run the simulation** using the provided automation script:
+   ```bash
    vsim -do tb_script.do
    ```
 
-5. **See results through ModelSim UI**, as the image below suggests:
+5. **Visualize results** through the ModelSim UI. Expected output and waveforms are displayed in the integrated waveform viewer, as shown below:
 
 ![ModelSim UI](image_docs/ModelSimPic.png)
 
-## Tools Folder Explanation
+6. **An Output file** called "output_S.txt" is generated with the iterations of the PRNG.
 
-The tools folder contains a variety of tools useful for conversion between posit and IEEE 754 number systems.
+## Utility Tools
+
+This repository includes a suite of conversion tools facilitating seamless interoperability between Posit and IEEE 754 number systems used for troubleshooting:
 
 - **double_to_posit.py**  
-  Converts standard double-precision floating-point numbers to their Posit representation. Useful for generating test vectors or initializing hardware modules.
+  Converts IEEE 754 double-precision floating-point numbers to their Posit representation. Can be used for generating test vectors and determining initial condition for simulations.
 
 - **posit_lookup_table.py**  
-  Generates a lookup table mapping all possible Posit values (for a given word size and exponent size) to their corresponding float values. This helps in debugging and validating the hardware implementation.
+  Generates comprehensive lookup tables mapping all possible Posit values (for specified word size and exponent size) to their floating-point equivalents.
 
 - **posit_to_float.py**  
-  Converts a Posit bitstring to its floating-point equivalent. This is essential for interpreting hardware outputs and for reference during simulation.
+  Converts Posit bit-strings to their floating-point equivalents.
 
 ---
 
-For any questions or issues, please contact samuelsouza@ufmg.br.
+## Contact & Support
+
+For technical inquiries, questions regarding the implementation, or to report issues, please contact:
+
+**Samuel da Silva**  
+Email: [samuelsouza@ufmg.br](mailto:samuelsouza@ufmg.br)
