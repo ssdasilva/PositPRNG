@@ -2,3 +2,5 @@ output_S.txt
 src/pseudorandom_generator/work/
 src/pseudorandom_generator/transcript
 src/pseudorandom_generator/vsim.wlf
+output
+.ipynb_checkpoints
