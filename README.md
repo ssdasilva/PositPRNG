@@ -65,6 +65,17 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
 6. **An Output file** called "output_S.txt" is generated with the iterations of the PRNG, as the example below:
 ![Output file example](images_docs/output_example.png)
 
+## Image Encryption Simulation
+
+Open `src/image_encryption/image_encryption.ipynb` with **Jupyter Notebook** or **JupyterLab** and execute all cells to reproduce the image-encryption workflow. We recommend using **Kernel → Restart & Run All** to start from a clean state.
+
+Below are example images produced by the notebook. Original (left) and encrypted (right):
+
+| Original | Encrypted |
+|---:|:---|
+| ![Original](images_docs/orginal_image_example.png) | ![Encrypted](images_docs/encrypted_image_example.png) |
+
+
 ## Utility Tools
 
 This repository includes a suite of conversion tools facilitating seamless interoperability between Posit and IEEE 754 number systems used for troubleshooting:
