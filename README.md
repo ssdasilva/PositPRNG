@@ -29,7 +29,15 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
   - `image_encryption.ipynb`: Image encryption scheme implemented unsing Software-in-the-Loop and Hardware-in-the-Loop PRNG scheme.
   - `images`: Images repository used for encrypting process. 
 
+- `image_docs`: Images utilized for this README file.
+
 - `README.md`: Project documentation.
+
+## Dependencies
+
+1. [ModelSim](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-18-1) - FPGA simulation tool
+2. Python (3.12.3 or later) - For executing tools and scripts.
+3. Jupyter notebook - For the image encryption scheme.
 
 ## How to Run (Using ModelSim)
 
@@ -40,18 +48,16 @@ The PRNG uses a Sine Map function approximated through a simple Sugeno Fuzzy inf
    vcom complete_scheme.vhdl
    vcom tb_complete_sine_map_scheme.vhd
    ```
+3. **Change the input seed** by editing `input_A.txt` if needed. This number is saved in bits using Posit<32,2> format.
 
-3. **Run the simulation** using the provided script:
+4. **Run the simulation** using the provided script:
    ```
-   do tb_script.do
-   ```
-
-4. **View the waveforms**:
-   ```
-   do wave.do
+   vsim -do tb_script.do
    ```
 
-5. **Change the input seed** by editing `input_A.txt` if needed.
+5. **See results through ModelSim UI**, as the image below suggests:
+
+![ModelSim UI](image_docs/ModelSimPic.png)
 
 ## Tools Folder Explanation
 
